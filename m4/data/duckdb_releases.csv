@@ -1,0 +1,14 @@
+version,release_date,major_feature,is_major,github_stars_approx
+0.1.0,2019-11-26,Initial public release,False,200
+0.2.0,2020-05-29,Window functions support,False,800
+0.3.0,2020-11-10,Parallel query execution,False,2000
+0.4.0,2021-05-08,Transactions & ACID compliance,False,4500
+0.5.0,2021-10-01,Replacement scans API,False,7000
+0.6.0,2022-04-07,Parallel CSV reader,False,10500
+0.7.0,2023-02-13,Python relational API,False,14000
+0.8.0,2023-05-17,Parallel hash aggregation,False,18000
+0.9.0,2023-09-26,Hive partitioning support,False,22000
+0.10.0,2024-02-13,Community extensions hub,False,27000
+1.0.0,2024-06-03,Stable ABI & v1 milestone,True,31000
+1.1.0,2024-09-09,Secret manager & cloud storage,False,35000
+1.2.0,2025-02-05,Arrow IPC streaming,False,40000

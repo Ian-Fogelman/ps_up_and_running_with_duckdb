@@ -1,0 +1,6 @@
+duckdb
+pandas
+boto3
+moto[s3,server]
+openpyxl
+pyarrow

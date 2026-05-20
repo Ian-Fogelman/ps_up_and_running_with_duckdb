@@ -1,0 +1,138 @@
+{
+  "duckdb_extensions": [
+    {
+      "name": "httpfs",
+      "description": "Read/write files over HTTP, HTTPS, and S3-compatible object stores",
+      "category": "Storage",
+      "bundled": true,
+      "load_command": "LOAD httpfs;",
+      "example": "SELECT * FROM read_parquet('s3://bucket/file.parquet');",
+      "tags": [
+        "s3",
+        "http",
+        "cloud",
+        "remote"
+      ]
+    },
+    {
+      "name": "spatial",
+      "description": "Geospatial types and functions backed by GDAL and GEOS",
+      "category": "Analytics",
+      "bundled": false,
+      "load_command": "INSTALL spatial; LOAD spatial;",
+      "example": "SELECT ST_Area(ST_GeomFromText('POLYGON((0 0,1 0,1 1,0 1,0 0))'));",
+      "tags": [
+        "geo",
+        "gis",
+        "geometry",
+        "gdal"
+      ]
+    },
+    {
+      "name": "json",
+      "description": "JSON extraction, manipulation, and auto-detection from JSON files",
+      "category": "Format",
+      "bundled": true,
+      "load_command": "LOAD json;",
+      "example": "SELECT json_extract('{\"a\":1}', '$.a');",
+      "tags": [
+        "json",
+        "semi-structured",
+        "extraction"
+      ]
+    },
+    {
+      "name": "excel",
+      "description": "Read .xlsx files directly with read_xlsx()",
+      "category": "Format",
+      "bundled": false,
+      "load_command": "INSTALL excel; LOAD excel;",
+      "example": "SELECT * FROM read_xlsx('data.xlsx');",
+      "tags": [
+        "excel",
+        "xlsx",
+        "spreadsheet"
+      ]
+    },
+    {
+      "name": "iceberg",
+      "description": "Read Apache Iceberg tables from local disk or object storage",
+      "category": "Storage",
+      "bundled": false,
+      "load_command": "INSTALL iceberg; LOAD iceberg;",
+      "example": "SELECT * FROM iceberg_scan('path/to/table');",
+      "tags": [
+        "iceberg",
+        "lakehouse",
+        "catalog"
+      ]
+    },
+    {
+      "name": "delta",
+      "description": "Read Delta Lake tables (read-only)",
+      "category": "Storage",
+      "bundled": false,
+      "load_command": "INSTALL delta; LOAD delta;",
+      "example": "SELECT * FROM delta_scan('path/to/delta');",
+      "tags": [
+        "delta",
+        "databricks",
+        "lakehouse"
+      ]
+    },
+    {
+      "name": "fts",
+      "description": "Full-text search indexes using BM25 ranking",
+      "category": "Analytics",
+      "bundled": false,
+      "load_command": "INSTALL fts; LOAD fts;",
+      "example": "PRAGMA create_fts_index('docs', 'id', 'body');",
+      "tags": [
+        "search",
+        "bm25",
+        "text",
+        "index"
+      ]
+    },
+    {
+      "name": "postgres",
+      "description": "Attach to and query live PostgreSQL databases",
+      "category": "Connectivity",
+      "bundled": false,
+      "load_command": "INSTALL postgres; LOAD postgres;",
+      "example": "ATTACH 'dbname=mydb' AS pg (TYPE POSTGRES);",
+      "tags": [
+        "postgres",
+        "attach",
+        "federated"
+      ]
+    },
+    {
+      "name": "mysql",
+      "description": "Attach to and query live MySQL / MariaDB databases",
+      "category": "Connectivity",
+      "bundled": false,
+      "load_command": "INSTALL mysql; LOAD mysql;",
+      "example": "ATTACH 'host=localhost user=root database=mydb' AS mysql_db (TYPE MYSQL);",
+      "tags": [
+        "mysql",
+        "mariadb",
+        "attach",
+        "federated"
+      ]
+    },
+    {
+      "name": "arrow",
+      "description": "Zero-copy interchange with Apache Arrow tables and IPC streams",
+      "category": "Format",
+      "bundled": true,
+      "load_command": "LOAD arrow;",
+      "example": "SELECT * FROM arrow_scan(my_arrow_table);",
+      "tags": [
+        "arrow",
+        "zero-copy",
+        "columnar"
+      ]
+    }
+  ]
+}
