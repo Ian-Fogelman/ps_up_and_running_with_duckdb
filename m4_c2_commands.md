@@ -1,4 +1,4 @@
-# DuckDB m4_c1 CLI Query Commands
+#  m4_c2 Demo: Creating Tables and Views from External Data
 
 To start a duckdb ephmeral session:
 

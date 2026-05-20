@@ -1,4 +1,4 @@
-# DuckDB m4_c1 CLI Query Commands
+# DuckDB m4_c1 Reading Files Directly — CSV, Parquet, Excel, JSON
 
 To start a duckdb ephmeral session:
 

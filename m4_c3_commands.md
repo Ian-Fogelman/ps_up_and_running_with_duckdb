@@ -1,4 +1,4 @@
-# Demo 3: Saving and Reusing Query Output
+# Demo m4_c3: Saving and Reusing Query Output
 
 Exporting results to CSV and Parquet with `COPY TO`, and wrapping reusable logic into macros for efficient, repeatable analysis.
 
