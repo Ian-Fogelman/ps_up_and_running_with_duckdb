@@ -103,35 +103,3 @@ FROM read_parquet('m4/data/clickstream_events.parquet')
 GROUP BY region ORDER BY total_revenue DESC;
 .timer off
 ```
-
----
-
-## Querying files hosted on GitHub
-
-Replace `{user}` and `{repo}` with your GitHub username and repository name.
-
-```sql
--- Load the httpfs extension to enable remote file reads
-INSTALL httpfs;
-LOAD httpfs;
-
--- CSV from GitHub raw
-SELECT * FROM read_csv_auto('https://raw.githubusercontent.com/{user}/{repo}/main/m4/data/duckdb_releases.csv');
-
--- Parquet from GitHub raw
-SELECT * FROM read_parquet('https://raw.githubusercontent.com/{user}/{repo}/main/m4/data/duckdb_community_events.parquet');
-
--- JSON from GitHub raw
-SELECT ext.name, ext.category, ext.description
-FROM (
-    SELECT UNNEST(duckdb_extensions) AS ext
-    FROM read_json_auto('https://raw.githubusercontent.com/{user}/{repo}/main/m4/data/duckdb_extensions.json')
-);
-
--- Benchmark Parquet over HTTP vs local
-.timer on
-SELECT region, SUM(revenue_usd) AS total_revenue
-FROM read_parquet('https://raw.githubusercontent.com/{user}/{repo}/main/m4/data/clickstream_events.parquet')
-GROUP BY region ORDER BY total_revenue DESC;
-.timer off
-```
