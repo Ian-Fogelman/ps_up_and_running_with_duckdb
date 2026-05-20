@@ -72,34 +72,3 @@ FROM read_xlsx('m4/data/duckdb_community.xlsx', sheet='Community Metrics')
 ORDER BY yoy_growth_pct DESC
 LIMIT 5;
 ```
-
----
-
-## clickstream_events.csv  →  cache to Parquet
-
-```sql
--- Cache CSV to Parquet (run once)
-COPY (SELECT * FROM read_csv_auto('m4/data/clickstream_events.csv'))
-TO 'm4/data/clickstream_events.parquet'
-(FORMAT PARQUET, COMPRESSION ZSTD, ROW_GROUP_SIZE 100000);
-
--- Revenue by region from Parquet cache
-SELECT
-    region,
-    SUM(revenue_usd) AS total_revenue,
-    COUNT(*)         AS events
-FROM read_parquet('m4/data/clickstream_events.parquet')
-GROUP BY region
-ORDER BY total_revenue DESC;
-
--- Benchmark: compare CSV vs Parquet query time
-.timer on
-SELECT region, SUM(revenue_usd) AS total_revenue
-FROM read_csv_auto('m4/data/clickstream_events.csv')
-GROUP BY region ORDER BY total_revenue DESC;
-
-SELECT region, SUM(revenue_usd) AS total_revenue
-FROM read_parquet('m4/data/clickstream_events.parquet')
-GROUP BY region ORDER BY total_revenue DESC;
-.timer off
-```
