@@ -1,9 +1,9 @@
 #  m4_c2 Demo: Creating Tables and Views from External Data
 
-To start a duckdb ephmeral session:
+To start a duckdb persistant session:
 
 ```
-duckdb
+duckdb demo.duckdb
 ```
 
 ---
