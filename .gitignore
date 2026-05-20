@@ -1,4 +1,4 @@
 m4/code/generate_datasets.py
-m4/code/generate_large_datasets.py
+m4/code/generate_large_dataset.py
 demo.duckdb
 .claude
