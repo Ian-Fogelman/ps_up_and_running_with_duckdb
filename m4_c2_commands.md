@@ -71,3 +71,15 @@ FROM read_csv_auto('s3://duckdb-demo-bucket/query_logs.csv')
 GROUP BY client
 ORDER BY avg_ms DESC;
 ```
+
+Query a file hosted in Github over https: 
+
+```
+SELECT *
+FROM                                                                                                                             
+read_csv_auto('https://raw.githubusercontent.com/Ian-Fogelman/ps_up_and_running_with_duckdb/refs/heads/main/m4/data/duckdb_releases.csv'); 
+```
+
+Lastly make sure to check out the live WASM example on DuckDB docs!
+
+https://duckdb.org/docs/current/clients/wasm/overview
